@@ -1,4 +1,4 @@
-from Productos import *
+from productos import *
 class Cromos(Productos):
     def __init__(self, nombre, marca, edicion, copias, estado):
         super().__init__(nombre, marca, copias, estado)
@@ -24,11 +24,8 @@ class Cromos(Productos):
         return rareza
 
     def precio(self):
-        if self.copias <= 10:
-            precio = 4**self.estado / self.copias
-        else:
-            precio = 3 ** self.estado / self.copias
-        return precio
+        super().precio()
+
 
     def verificar_marca(self):
         if self.marca.lower() != 'pokemon' or self.marca.lower() != 'magic' or self.marca.lower() != 'yu-gi-oh':

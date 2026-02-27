@@ -22,5 +22,8 @@ class Productos:
         return rareza
 
     def precio(self):
-        precio = (3 ** self.estado / self.copias) * self.tam()
+        if self.copias <= 10:
+            precio = 4 ** self.estado / self.copias
+        else:
+            precio = 3 ** self.estado / self.copias
         return precio
