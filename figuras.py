@@ -23,7 +23,8 @@ class Figura(Productos):
         super().rarezas()
 
     def precio(self):
-        super().precio()
+        precio = (3 ** self.estado / self.copias) * self.tam()
+        return precio
 
     def restaurar(self, mejora):
         estado_anterior = self.estado
