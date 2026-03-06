@@ -1,39 +1,38 @@
 class Usuario:
-    def __init__(self, id_usuario, nombre, email, saldo):
+    def __init__(self, id_usuario, nombre, email, saldo_inicial):
         self.id_usuario = id_usuario
         self.nombre = nombre
-        self.email = email
-        self.saldo = saldo
         self.carrito = []
         self.productos_propios = []
         self.historial_pedidos = []
+        #atributos privados
+        self.email = email
+        self.saldo = saldo_inicial
 
-    def mostar_informacion(self):
-        print('----INFORMACIÓN DEL USUARO----')
-        print('ID:', self.id_usuario)
-        print('Nombre:', self.nombre)
-        print('Email:', self.email)
-        print('Saldo:', self.saldo)
+    @property
+    def email(self):
+        return self.__email
 
-    def anyadir_carrito(self, producto):
-        self.carrito.append(producto)
-
-    def eliminar_del_carrito(self, producto):
-        if producto in self.carrito:
-            self.carrito.remove(producto)
-
-    def anyadir_saldo(self, cantidad):
-        self.saldo += cantidad
-
-    def validar_email(self):
-        if '@gmail.com' in self.email or '@hotmail.com' in self.email:
-            return True
+    @email.setter
+    def email(self, nuevo_email):
+        if '@gmail.com' in nuevo_email or '@hotmail.com' in nuevo_email:
+            self.__email = nuevo_email
         else:
-            return False
+            print(f'Error: El email '{nuevo_email}' no tiene un formato válido.')
+            self.__email = None
 
-    if __name__ =='__main__':
+    @property
+    def saldo(self):
+        return self.__saldo
 
-        if validar_email():
-            print("Email válido")
+    @saldo.setter
+    def saldo(self, cantidad):
+        if cantidad < 0:
+            print('Error: El saldo no puede ser negativo. Se asignará 0€ por seguridad.')
+            self.__saldo = 0
         else:
-            print("Email incorrecto")
+            self.__saldo = cantidad
+
+    def __str__(self):
+        return f'Usuario {self.id_usuario}: {self.nombre} | Email: {self.email} | Saldo: {self.saldo}€')
+
