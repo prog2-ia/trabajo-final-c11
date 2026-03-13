@@ -10,3 +10,6 @@ class Cromos(Producto):
             return (4 ** self.estado) / max(1, self.copias)
         else:
             return (3 ** self.estado) / max(1, self.copias)
+
+    def __str__(self):
+        return f'Cromo: {self.nombre} ({self.edicion}) - Estado: {self.estado}'

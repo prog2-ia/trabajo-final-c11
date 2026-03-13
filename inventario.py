@@ -1,3 +1,4 @@
+import copy
 from producto import Producto
 
 class Inventario:
@@ -16,7 +17,18 @@ class Inventario:
             print('Error: Solo se pueden añadir objetos de tipo "Producto".')
 
     def valor_total(self):
-        total = 0
-        for prod in self.__productos:
-            total += prod.precio()
-        return total
+        return sum(prod.precio() for prod in self.__productos)
+
+    def __len__(self):
+        return len(self.__productos)
+
+    def __bool__(self):
+        return len(self.__productos) > 0
+
+    def __add__(self, nuevo_producto):
+        if isinstance(nuevo_producto, Producto):
+            nuevo_inventario = Inventario()
+            nuevo_inventario._Inventario__productos = copy.deepcopy(self.__productos)
+            nuevo_inventario._Inventario__productos.append(nuevo_producto)
+            return nuevo_inventario
+        return self

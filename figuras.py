@@ -13,3 +13,6 @@ class Figura(Producto):
 
     def precio(self):
         return ((3 ** self.estado) / max(1, self.copias)) * self.tam()
+
+    def __str__(self):
+        return f'Figura: {self.nombre} ({self.modelo}) - Estado: {self.estado}'

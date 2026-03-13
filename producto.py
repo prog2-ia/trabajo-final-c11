@@ -32,3 +32,6 @@ class Producto(ABC):
         else:
             rareza = 'estándar'
         return rareza
+
+    def __repr__(self):
+        return f'{type(self).__name__}("{self.nombre}", "{self.marca}", {self.copias}, {self.estado})'
