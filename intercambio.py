@@ -10,7 +10,7 @@ class Intercambio(Transaccion):
 
     def ejecutar(self):
         if self.estado == 'Pendiente':
-            print(f'Ejecutando intercambio entre {self.usuario_origen} y {self.usuario_destino}...')
+            print(f'Ejecutando intercambio entre {self.usuario_origen} y {self.usuario_destino}')
             self.estado = 'Completada'
         else:
             print('El intercambio ya no está pendiente.')
