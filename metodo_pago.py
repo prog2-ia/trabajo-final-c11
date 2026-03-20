@@ -1,7 +1,9 @@
-class MetodoPago:
+from abc import ABC, abstractmethod
+
+class MetodoPago(ABC):#
     def __init__(self, titular):
         self.titular = titular
-
+    @abstractmethod
     def procesar_pago(self, cantidad):
         pass
 
