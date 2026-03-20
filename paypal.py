@@ -5,6 +5,7 @@ class PayPal(MetodoPago):#
         super().__init__(titular)
         self.email = email
 
+# Ejecuta el pago de la cuenta seleccionada
     def procesar_pago(self, cantidad):
         print(f'Cobrando {round(cantidad, 2)}€ a la cuenta PayPal: {self.email}')
         return True

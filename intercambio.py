@@ -6,7 +6,7 @@ class Intercambio(Transaccion):#
         self.usuario_destino = usuario_destino
         self.ofrecemos = ofrecemos
         self.solicitamos = solicitamos
-
+# Cambia el estado de una transacción de pendiente a completada
     def ejecutar(self): #Gestionar en clase, decidir que hacer.
         if self.estado == 'Pendiente':
             print(f'Ejecutando intercambio entre {self.usuario_origen} y {self.usuario_destino}...')

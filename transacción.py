@@ -7,15 +7,15 @@ class Transaccion(ABC):
         self.__id_transaccion = type(self).num_transacciones
         self.usuario_origen = usuario_origen
         self._estado = "Pendiente"
-
+# Getter para permitir el acceso controlado al id de la trasacción.
     @property
     def id_transaccion(self):
         return self.__id_transaccion
-
+# Crea el metodo abstracto ejecutar
     @abstractmethod
     def ejecutar(self):#
         pass
-
+# Crea el metodo estatico normas_transacción
     @staticmethod
     def normas_transaccion():
         print('Toda transacción completada es definitiva y no admite devoluciones.')
