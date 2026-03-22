@@ -17,7 +17,9 @@ class Pedido(Transaccion):#
     def ejecutar(self): #Mirar cambios el viernes.
         if self._estado == 'Pendiente':
             print(f'Procesando pedido de {self.total} euros...')
-            self._estado = 'Completada'
-            print('Pedido completado.')
+            pago_exitoso = self.metodo_pago.procesar_pago(self.total)
+            if pago_exitoso:
+                self._estado = 'Completada'
+                print('Pedido completado.')
         else:
             print('El pedido ya no está pendiente.')

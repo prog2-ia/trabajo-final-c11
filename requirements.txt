@@ -1,0 +1,3 @@
+#En este proyecto se utilizan las librerias:
+#copy
+#abc

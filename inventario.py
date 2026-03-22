@@ -19,6 +19,16 @@ class Inventario:
     def valor_total(self):
         return sum(prod.precio() for prod in self.__productos)
 
+    def detectar_repetidos(self):
+        repetidos = []
+        vistos = []
+        for prod in self.__productos:
+            if prod in vistos and prod not in repetidos:
+                repetidos.append(prod)
+            else:
+                vistos.append(prod)
+        return repetidos
+
     def __len__(self):
         return len(self.__productos)
 
@@ -26,9 +36,12 @@ class Inventario:
         return len(self.__productos) > 0
 
     def __add__(self, nuevo_producto):
-        if isinstance(nuevo_producto, Producto):
-            nuevo_inventario = Inventario()
-            nuevo_inventario._Inventario__productos = copy.deepcopy(self.__productos)
-            nuevo_inventario._Inventario__productos.append(nuevo_producto)
-            return nuevo_inventario
-        return self
+        nuevo_inventario = Inventario()
+        nuevo_inventario._Inventario__productos = copy.deepcopy(self.__productos)
+
+        if isinstance(otro, Inventario):
+            nuevo_inventario._Inventario__productos.extend(copy.deepcopy(otro.productos))
+        elif isinstance(otro, Producto):
+            nuevo_inventario._Inventario__productos.append(copy.deepcopy(otro))
+
+        return nuevo_inventario
