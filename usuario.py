@@ -8,11 +8,11 @@ class Usuario:
         #atributos privados
         self.email = email
         self.saldo = saldo_inicial
-
+# Getter para retornar el correo electrónico almacenado de forma privada.
     @property
     def email(self):
         return self.__email
-
+# Setter que solo permite correos de gmail o hotmail
     @email.setter
     def email(self, nuevo_email):
         if '@gmail.com' in nuevo_email or '@hotmail.com' in nuevo_email:
@@ -20,11 +20,11 @@ class Usuario:
         else:
             print(f'Error: El email "{nuevo_email}" no tiene un formato válido.')
             self.__email = None
-
+# Getter que devuelve el saldo del usuario
     @property
     def saldo(self):
         return self.__saldo
-
+# Setter que se asegura de que no haya un saldo negativo
     @saldo.setter
     def saldo(self, cantidad):
         self.__saldo = max(0, cantidad)

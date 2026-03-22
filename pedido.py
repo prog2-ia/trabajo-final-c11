@@ -13,6 +13,7 @@ class Pedido(Transaccion):#
 
     def __bool__(self):
         return len(self.carrito) > 0 # true si en el pedido hay cosas en el carrito
+
     def ejecutar(self): #Mirar cambios el viernes.
         if self._estado == 'Pendiente':
             print(f'Procesando pedido de {self.total} euros...')

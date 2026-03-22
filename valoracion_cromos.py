@@ -6,6 +6,6 @@ class ValoracionCromo(Valoracion):
         self.esquinas = esquinas
         self.bordes = bordes
         self.superficies = superficies
-
+# Calcula la nota de los cromos
     def calcular_nota(self):
         return (self.centrado + self.esquinas + self.bordes + self.superficies) / 4

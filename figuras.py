@@ -7,10 +7,10 @@ class Figura(Producto):
         self.alto = alto
         self.ancho = ancho
         self.largo = largo
-
+# Calcula el volumen de la figura
     def tam(self):
         return self.alto * self.largo * self.ancho
-
+# Calcula el precio
     def precio(self):
         return ((3 ** self.estado) / max(1, self.copias)) * self.tam()
 
