@@ -6,7 +6,7 @@ El sistema aplica los conceptos vistos en la asignatura:
 * **Encapsulamiento:** Protección de datos sensibles (saldo, email, estado de los artículos) mediante propiedades (`@property`) y validadores (`.setter`).
 * **Herencia y Polimorfismo:** Uso de jerarquías de clases (ej. `Cromos` y `Figura` heredan de `Producto`) y métodos polimórficos para procesar diferentes métodos de pago (`PayPal`, `Tarjeta`, `Transferencia`).
 * **Clases Abstractas:** Definición de interfaces comunes usando el módulo `abc` para garantizar que las subclases implementen métodos clave como `precio()` o `ejecutar()`.
-* **Sobrecarga de Operadores:** Implementación de métodos mágicos (`__add__`, `__eq__`, `__lt__`, `__gt__`) para combinar inventarios, detectar artículos repetidos y comparar la rareza de las piezas.
+* **Sobrecarga de Operadores:** Implementación de métodos mágicos (`__add__`, `__eq__`) para combinar inventarios y detectar artículos repetidos.
 
 ## 2. Instalación
 Para instalar este proyecto sigue estos pasos:
