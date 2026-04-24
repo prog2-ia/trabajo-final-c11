@@ -15,4 +15,4 @@ Para instalar este proyecto sigue estos pasos:
    git clone https://github.com/prog2-ia/trabajo-final-c11
 
 ## 3. Uso
-Para ejecutar el sistema abre el archivo main.py
+Para ejecutar el sistema abre el archivo Director.py
