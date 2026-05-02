@@ -1,7 +1,6 @@
 import copy
 from producto import Producto
 
-
 class Inventario:
     def __init__(self):
         self.__productos = []
