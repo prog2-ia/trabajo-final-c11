@@ -4,7 +4,11 @@ class Producto(ABC):
     def __init__(self, nombre, marca, copias, estado):
         self.nombre = nombre
         self.marca = marca
-        self.copias = copias
+        if copias < 0:
+            print('Error: Las copias no pueden ser negativas. Se asignará 0.')
+            self.copias = 0
+        else:
+            self.copias = copias
         self.estado = estado
 # Getter para permitir el acceso controlado al estado del producto
     @property
@@ -32,6 +36,12 @@ class Producto(ABC):
         else:
             rareza = 'estándar'
         return rareza
+
+# Detectar si dos productos son el mismo (para buscar repetidos)
+    def __eq__(self, otro):
+        if isinstance(otro, Producto):
+            return self.nombre == otro.nombre and self.marca == otro.marca
+        return False
 
     def __repr__(self):
         return f'{type(self).__name__}("{self.nombre}", "{self.marca}", {self.copias}, {self.estado})'
