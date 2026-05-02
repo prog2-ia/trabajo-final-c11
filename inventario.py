@@ -11,7 +11,7 @@ class Inventario:
     def productos(self):
         return self.__productos
 
-    # Añade un producto al inventario (Método tradicional)
+    # Añade un producto al inventario (Metodo tradicional)
     def agregar_producto(self, producto):
         if isinstance(producto, Producto):
             if producto not in self.__productos:
